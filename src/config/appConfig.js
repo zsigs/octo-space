@@ -1,5 +1,6 @@
-const { root } = require('../constants');
-const { router } = require('../routes');
+const { root } = require("../constants");
+const { router } = require("../routes");
+const { mongooseConnect } = require("../resources");
 
 const express = require("express");
 const hbs = require("hbs");
@@ -7,6 +8,8 @@ const bodyParser = require("body-parser");
 const session = require("express-session")
 const connectMongo = require("connect-mongo");
 const mongoose = require("mongoose");
+
+mongooseConnect();
 
 const MongoStore = connectMongo(session);
 
