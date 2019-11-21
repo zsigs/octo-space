@@ -1,1 +1,21 @@
 <h1>Signup</h1>
+
+<form action="/signup" method="post">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email-input">
+
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username-input">
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password-input">
+
+  <label for="password-confirm">Confirm your Password</label>
+  <input type="password" name="passwordConfirm" id="password-confirm-input">
+
+  <button type="submit">Sign Up</button>
+</form>
+
+{{#if errorMessage}}
+  <p>{{ errorMessage }}</p>
+{{/if}}

@@ -1,10 +1,11 @@
-const { renderHome , renderSignupForm } = require("../controllers");
+const { renderHome , renderSignupForm , createUser } = require("../controllers");
 
 const express = require('express');
 const router = express.Router();
 
 router.get("/", renderHome);
 router.get("/signup", renderSignupForm);
+router.post("/signup", createUser);
 
 module.exports = {
   router,
