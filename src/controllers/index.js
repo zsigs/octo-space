@@ -1,5 +1,6 @@
-const { renderHome } = require("./pagesController");
+const { renderHome , renderSignupForm } = require("./pagesController");
 
 module.exports = {
   renderHome,
-}
+  renderSignupForm,
+};
