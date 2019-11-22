@@ -1,5 +1,5 @@
 const renderSignupForm = (request, response, next) => {
-  response.render("signup");
+  response.render("authentication/signup");
 };
 
 module.exports = {

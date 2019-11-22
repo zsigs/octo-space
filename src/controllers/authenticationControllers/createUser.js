@@ -5,17 +5,17 @@ const createUser = (request, response, next) => {
   const newUserObject = request.body;
 
   if (newUserObject.password != newUserObject.passwordConfirm) {
-    response.render("signup", {
+    response.render("authentication/signup", {
       errorMessage : "Password confirmation does not match password",
     });
     return null;
   };
 
   User.find({ username : newUserObject.username })
-  .then(existingUser => {
+  .then(existingUsers => {
     console.log(existingUsers);
     if (existingUsers.length) {
-      response.render("signup", {
+      response.render("authentication/signup", {
         errorMessage : "Username already in use"
       });
     } else {
