@@ -1,5 +1,15 @@
-const { renderHome , renderSignupForm , renderLoginForm } = require("./pagesController");
-const { createUser , loginUser , logoutUser } = require("./authenticationControllers");
+const {
+  renderHome,
+  renderSignupForm,
+  renderLoginForm
+} = require('./pagesController');
+
+const {
+  createUser,
+  loginUser,
+  userLoggedIn,
+  logoutUser
+} = require('./authenticationControllers');
 
 module.exports = {
   renderHome,
@@ -7,5 +17,6 @@ module.exports = {
   renderLoginForm,
   createUser,
   loginUser,
+  userLoggedIn,
   logoutUser,
 };
