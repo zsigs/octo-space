@@ -1,13 +1,5 @@
 const { createUser } = require('./createUser');
 const { loginUser } = require('./loginUser');
-<<<<<<< HEAD
-const { userLoggedIn } = require('./userLoggedIn');
-
-module.exports = {
-  createUser,
-  loginUser
-};
-=======
 const { logoutUser } = require('./logoutUser');
 
 module.exports = {
@@ -15,4 +7,3 @@ module.exports = {
   loginUser,
   logoutUser,
 };
->>>>>>> creating-users

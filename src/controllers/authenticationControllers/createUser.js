@@ -26,13 +26,8 @@ const createUser = (request, response, next) => {
         password : newUserHashPass,
       })
       .then(newUser => {
-<<<<<<< HEAD
-        console.log(newUser);
-        response.redirect('/');
-=======
         console.log('New user in DB: ', newUser);
         response.redirect("/");
->>>>>>> creating-users
       })
       .catch(err => {
         console.log('Error registering user to DB: ', err);
