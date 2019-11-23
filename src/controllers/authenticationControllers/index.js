@@ -4,5 +4,6 @@ const { userLoggedIn } = require('./userLoggedIn');
 
 module.exports = {
   createUser,
-  loginUser
+  loginUser,
+  userLoggedIn
 };

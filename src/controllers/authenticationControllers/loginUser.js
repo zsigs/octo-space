@@ -13,8 +13,7 @@ const loginUser = (request, response, next) => {
         errorMessage : 'Invalid Username'
       });
     } else {
-      const hashPassAttempt = bcrypt.hashSync(user.password, 10);
-      if ( bcrypt.compareSync(hashPassAttempt, existingUser.password) ) {
+      if ( bcrypt.compareSync(user.password, existingUser.password) ) {
         request.session.user = existingUser;
         response.redirect('/');
       } else {
