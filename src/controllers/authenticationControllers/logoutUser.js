@@ -1,5 +1,5 @@
 const logoutUser = (request, response, next) => {
-  delete(request.session);
+  request.session.user = null;
   response.redirect('/');
 };
 
