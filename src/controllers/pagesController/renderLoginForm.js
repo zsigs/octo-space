@@ -1,5 +1,5 @@
 const renderLoginForm = (request, response, next) => {
-  response.render("authentication/login");
+  response.render('authentication/login');
 };
 
 module.exports = {
