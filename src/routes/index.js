@@ -4,7 +4,8 @@ const {
   renderLoginForm,
   createUser,
   loginUser,
-  userLoggedIn
+  userLoggedIn,
+  logoutUser
 } = require('../controllers');
 
 const express = require('express');
@@ -15,11 +16,12 @@ router.use((req, res, next) => {
   next()
 })
 
-router.get('/', userLoggedIn, renderHome);
-router.get('/login', renderLoginForm);
-router.post('/login', loginUser);
-router.get('/signup', userLoggedIn, renderSignupForm);
-router.post('/signup', createUser);
+router.get("/", renderHome);
+router.get("/login", renderLoginForm);
+router.post("/login", loginUser);
+router.get("/signup", renderSignupForm);
+router.post("/signup", createUser);
+router.get('/logout', logoutUser);
 
 module.exports = {
   router
