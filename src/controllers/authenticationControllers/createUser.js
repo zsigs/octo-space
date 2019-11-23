@@ -19,7 +19,8 @@ const createUser = (request, response, next) => {
         errorMessage : "Username already in use"
       });
     } else {
-      newUserHashPass = bcrypt.hashSync(newUserObject.password, 10);
+      const salt = bcrypt.genSaltSync(10);
+      const newUserHashPass = bcrypt.hashSync(newUserObject.password, salt);
       User.create({
         email : newUserObject.email,
         username : newUserObject.username,
@@ -36,7 +37,7 @@ const createUser = (request, response, next) => {
         });
       });
     };
-  })
+  });
 };
 
 module.exports = {
