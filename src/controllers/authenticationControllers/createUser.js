@@ -13,21 +13,26 @@ const createUser = (request, response, next) => {
 
   User.find({ username : newUserObject.username })
   .then(existingUsers => {
-    console.log(existingUsers);
     if (existingUsers.length) {
       response.render('authentication/signup', {
         errorMessage : 'Username already in use'
       });
     } else {
-      newUserHashPass = bcrypt.hashSync(newUserObject.password, 10);
+      const salt = bcrypt.genSaltSync(10);
+      const newUserHashPass = bcrypt.hashSync(newUserObject.password, salt);
       User.create({
         email : newUserObject.email,
         username : newUserObject.username,
         password : newUserHashPass,
       })
       .then(newUser => {
+<<<<<<< HEAD
         console.log(newUser);
         response.redirect('/');
+=======
+        console.log('New user in DB: ', newUser);
+        response.redirect("/");
+>>>>>>> creating-users
       })
       .catch(err => {
         console.log('Error registering user to DB: ', err);
@@ -36,7 +41,7 @@ const createUser = (request, response, next) => {
         });
       });
     };
-  })
+  });
 };
 
 module.exports = {
