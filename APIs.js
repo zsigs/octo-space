@@ -46,11 +46,14 @@ function dumpIMDB(){
 function getMoreMovieInfo(){
   Movie.find({ title: 'Iron Fist'})
   .then( (res) => {
-    console.log(res[0].imdbId)
-    axios
-    .get(`${mainURL}&i=${res[0].imdbId}`)
-    .then( movie => console.log(movie))
-    .catch ( err => console.log(err))
+    console.log(res[0])
+  //   axios
+  //   .get(`${mainURL}&i=${res[0].imdbId}`)
+  //   .then( (movieRes) => {
+  //     console.log(movieRes.data)
+  //     Movie.findOne({imdbId: movieRes.data.imdbID}, { $set: {releaseDate: movieRes.data.Released}}) 
+  //   })
+  //   .catch ( err => console.log(err))
   })
 }
 getMoreMovieInfo()
