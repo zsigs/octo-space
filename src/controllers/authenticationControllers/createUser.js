@@ -13,7 +13,6 @@ const createUser = (request, response, next) => {
 
   User.find({ username : newUserObject.username })
   .then(existingUsers => {
-    console.log(existingUsers);
     if (existingUsers.length) {
       response.render("authentication/signup", {
         errorMessage : "Username already in use"
@@ -27,7 +26,7 @@ const createUser = (request, response, next) => {
         password : newUserHashPass,
       })
       .then(newUser => {
-        console.log(newUser);
+        console.log('New user in DB: ', newUser);
         response.redirect("/");
       })
       .catch(err => {
