@@ -1,13 +1,13 @@
-const { root } = require("../constants");
-const { router } = require("../routes");
-const { mongooseConnect } = require("../resources");
+const { root } = require('../constants');
+const { router } = require('../routes');
+const { mongooseConnect } = require('../resources');
 
-const express = require("express");
-const hbs = require("hbs");
-const bodyParser = require("body-parser");
-const session = require("express-session")
-const connectMongo = require("connect-mongo");
-const mongoose = require("mongoose");
+const express = require('express');
+const hbs = require('hbs');
+const bodyParser = require('body-parser');
+const session = require('express-session')
+const connectMongo = require('connect-mongo');
+const mongoose = require('mongoose');
 
 mongooseConnect();
 
@@ -15,13 +15,13 @@ const MongoStore = connectMongo(session);
 
 const app = express();
 hbs.registerPartials(`${root}/views/components`);
-app.set("view engine", "hbs");
-app.set("views", `${root}/views`);
+app.set('view engine', 'hbs');
+app.set('views', `${root}/views`);
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(express.static(`${root}/public`));
 
 app.use(session({
-  secret : "123",
+  secret : '123',
   cookie : { maxAge : 3600000 },
   store : new MongoStore({
     mongooseConnection : mongoose.connection,
@@ -29,7 +29,7 @@ app.use(session({
   }),
 }));
 
-app.use("/", router);
+app.use('/', router);
 
 module.exports = {
   app,

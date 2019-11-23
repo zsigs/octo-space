@@ -1,4 +1,4 @@
-const { Like , User } = require("./userModels");
+const { Like , User } = require('./userModels');
 
 module.exports = {
   Like,

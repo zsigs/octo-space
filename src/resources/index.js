@@ -1,4 +1,4 @@
-const { mongooseConnect } = require("./mongooseConnect");
+const { mongooseConnect } = require('./mongooseConnect');
 
 module.exports = {
   mongooseConnect,

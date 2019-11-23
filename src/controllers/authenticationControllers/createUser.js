@@ -1,12 +1,12 @@
-const { User } = require("../../models");
-const bcrypt = require("bcrypt")
+const { User } = require('../../models');
+const bcrypt = require('bcrypt')
 
 const createUser = (request, response, next) => {
   const newUserObject = request.body;
 
   if (newUserObject.password != newUserObject.passwordConfirm) {
-    response.render("authentication/signup", {
-      errorMessage : "Password confirmation does not match password",
+    response.render('authentication/signup', {
+      errorMessage : 'Password confirmation does not match password',
     });
     return null;
   };
@@ -15,8 +15,8 @@ const createUser = (request, response, next) => {
   .then(existingUsers => {
     console.log(existingUsers);
     if (existingUsers.length) {
-      response.render("authentication/signup", {
-        errorMessage : "Username already in use"
+      response.render('authentication/signup', {
+        errorMessage : 'Username already in use'
       });
     } else {
       newUserHashPass = bcrypt.hashSync(newUserObject.password, 10);
@@ -27,12 +27,12 @@ const createUser = (request, response, next) => {
       })
       .then(newUser => {
         console.log(newUser);
-        response.redirect("/");
+        response.redirect('/');
       })
       .catch(err => {
-        console.log("Error registering user to DB: ", err);
+        console.log('Error registering user to DB: ', err);
         response.render('signup', {
-          errorMessage : "Error registering user to database",
+          errorMessage : 'Error registering user to database',
         });
       });
     };

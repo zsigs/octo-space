@@ -1,5 +1,5 @@
 const { User } = require('../../models');
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
 const loginUser = (request, response, next) => {
   const user = request.body;
@@ -9,8 +9,8 @@ const loginUser = (request, response, next) => {
   .then(existingUser => {
     console.log(existingUser);
     if (!existingUser) {
-      response.render("authentication/login", {
-        errorMessage : "Invalid Username"
+      response.render('authentication/login', {
+        errorMessage : 'Invalid Username'
       });
     } else {
       const hashPassAttempt = bcrypt.hashSync(user.password, 10);
@@ -18,8 +18,8 @@ const loginUser = (request, response, next) => {
         request.session.user = existingUser;
         response.redirect('/');
       } else {
-        response.render("authentication/login", {
-          errorMessage : "Invalid Password"
+        response.render('authentication/login', {
+          errorMessage : 'Invalid Password'
         });
       };
     };

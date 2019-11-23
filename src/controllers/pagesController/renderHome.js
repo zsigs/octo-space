@@ -1,5 +1,5 @@
 const renderHome = (request, response) => {
-  response.render("home");
+  response.render('home');
 };
 
 
