@@ -8,7 +8,8 @@ const {
   createUser,
   loginUser,
   userLoggedIn,
-  logoutUser
+  logoutUser,
+  confirmUser,
 } = require('./authenticationControllers');
 
 module.exports = {
@@ -19,4 +20,5 @@ module.exports = {
   loginUser,
   userLoggedIn,
   logoutUser,
+  confirmUser,
 };

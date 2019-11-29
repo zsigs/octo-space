@@ -1,4 +1,5 @@
-const { User } = require('../../models');
+const { User , EmailVerification } = require('../../models');
+const { sendMail } = require('../../resources');
 const bcrypt = require('bcrypt')
 
 const createUser = (request, response, next) => {
@@ -21,12 +22,23 @@ const createUser = (request, response, next) => {
       const salt = bcrypt.genSaltSync(10);
       const newUserHashPass = bcrypt.hashSync(newUserObject.password, salt);
       User.create({
+        confirmed : false,
         email : newUserObject.email,
         username : newUserObject.username,
         password : newUserHashPass,
       })
       .then(newUser => {
         console.log('New user in DB: ', newUser);
+        EmailVerification.create({
+          userId : newUser._id,
+        })
+        .then(verificator => {
+          sendMail(
+            newUser.email,
+            "Confirm your email",
+            `http://127.0.0.1:3000/confirm/${verificator._id}`
+          );
+        });
         response.redirect("/");
       })
       .catch(err => {
