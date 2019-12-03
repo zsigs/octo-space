@@ -8,7 +8,7 @@ const MovieSchema = new Schema({
   poster : String,
   releaseDate : String,
   runtime : String,
-  genre : String,
+  genre : Array,
   director : String,
   actors : String,
   plot : String,

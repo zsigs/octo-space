@@ -16,8 +16,8 @@ const songSchema = new Schema({
   coverImgUrl : {
     type : String,
   },
-  category : {
-    type : String,
+  genre : {
+    type : Array,
   },
   spotifyUrl : {
     type : String,

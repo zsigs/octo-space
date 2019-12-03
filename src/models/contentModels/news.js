@@ -6,7 +6,7 @@ const newsSchema = new Schema({
     type : String,
   },
   category: {
-    type : String,
+    type : Array,
   },
   mediaType: {
     type : String,
