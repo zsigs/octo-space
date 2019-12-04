@@ -5,6 +5,7 @@
   "repository": "git@github.com:zsigs/Project-2.git",
   "author": "Gabriel Zsigmond <gaazsig@gmail.com>",
   "license": "MIT",
+  "scripts": {"start": "nodemon ./src/app.js -e js, css, hbs"},
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.7",

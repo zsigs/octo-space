@@ -30,7 +30,6 @@ const seedNews = {
 }
 
 const seedMovie = {
-  _id: "5dd72ddf7bf631eeb9c58cc0",
   title: "Start the Revolution Without Me",
   type: "movie",
   imdbId: "tt0066402",
@@ -57,11 +56,16 @@ const seedBook = {
 function seedDB () {
   mongooseConnect();
   setTimeout(() => {
-    News.create(seedNews);
-    Song.create(seedSong);
-    ResearchPaper.create(seedResearchPaper);
-    Movie.create(seedMovie);
-    Book.create(seedBook);
+    News.create(seedNews)
+    .then(res => { console.log("created news") });
+    Song.create(seedSong)
+    .then(res => { console.log("created song") });;
+    ResearchPaper.create(seedResearchPaper)
+    .then(res => { console.log("created research paper") });;
+    Movie.create(seedMovie)
+    .then(res => { console.log("created movie") });;
+    Book.create(seedBook)
+    .then(res => { console.log("created book") });;
   }, 5000)
 };
 
