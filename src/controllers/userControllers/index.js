@@ -3,6 +3,7 @@ const { loginUser } = require('./loginUser');
 const { logoutUser } = require('./logoutUser');
 const { userLoggedIn } = require('./userLoggedIn');
 const { confirmUser } = require('./confirmUser');
+const { editUser } = require('./editUser')
 
 module.exports = {
   createUser,
@@ -10,4 +11,5 @@ module.exports = {
   userLoggedIn,
   logoutUser,
   confirmUser,
+  editUser
 };
