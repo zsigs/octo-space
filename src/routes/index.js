@@ -2,11 +2,13 @@ const {
   renderHome,
   renderSignupForm,
   renderLoginForm,
+  renderOnboarding,
   createUser,
   loginUser,
   userLoggedIn,
   logoutUser,
   confirmUser,
+  parseOnboarding,
 } = require('../controllers');
 
 const express = require('express');
@@ -24,6 +26,8 @@ router.get("/signup", renderSignupForm);
 router.post("/signup", createUser);
 router.get('/logout', logoutUser);
 router.get('/confirm/:verificationId', confirmUser);
+router.get('/onboarding', renderOnboarding);
+router.post('/onboarding', parseOnboarding);
 
 module.exports = {
   router
