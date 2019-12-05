@@ -15,7 +15,7 @@ const confirmUser = (request, response, next) => {
     .then(updatedUser => {
       console.log(updatedUser);
       request.session.user = updatedUser;
-      response.redirect('/');
+      response.redirect('/onboarding');
     });
   });
 };
