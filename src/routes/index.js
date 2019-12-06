@@ -27,8 +27,8 @@ router.get('/signup', renderSignupForm);
 router.post('/signup', createUser);
 router.get('/logout', logoutUser);
 router.get('/confirm/:verificationId', confirmUser);
-router.get('/:username', renderProfile);
-router.get('/:username/edit', renderEditForm)
+router.get('/octo/:username', renderProfile);
+router.get('/octo/:username/edit', renderEditForm)
 router.post('/update-user', editUser)
 
 module.exports = {
