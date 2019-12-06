@@ -2,20 +2,14 @@
 
 <form action='/update-user' method='post'>
   <label for='email'>Email</label>
-  <input type='email' name='email' id='email-input'>
+  <input type='email' name='email' id='email-input' value="{{email}}">
 
   <label for='username'>Username</label>
-  <input type='text' name='username' id='username-input'>
-
-  <label for='password'>Password</label>
-  <input type='password' name='password' id='password-input'>
-
-  <label for='password-confirm'>Confirm your New Password</label>
-  <input type='password' name='passwordConfirm' id='password-confirm-input'>
+  <input type='text' name='username' id='username-input' value="{{username}}">
 
   <br>
 
-  <button type='submit'>Sign Up</button>
+  <button type='submit'>Update</button>
 </form>
 
 {{#if errorMessage}}
