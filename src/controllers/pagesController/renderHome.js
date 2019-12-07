@@ -1,31 +1,29 @@
-const { 
-  Movie,
-  Song,
-  ResearchPaper,
-  News,
-  Book
-} = require('../../models');
+const { Movie, Song, ResearchPaper, News, Book } = require('../../models');
 
 const renderHome = async (request, response) => {
-  const movies = await Movie.find({ });
-  const songs = await Song.find({ });
-  const books = await Book.find({ });
-  const news = await News.find({ });
-  const researchPapers = await ResearchPaper.find({ });
+  const movies = await Movie.find({});
+  const songs = await Song.find({});
+  const books = await Book.find({});
+  const news = await News.find({});
+  const researchPapers = await ResearchPaper.find({});
 
   const feed = {
     movies,
     songs,
     books,
     news,
-    researchPapers,
+    researchPapers
   };
 
-  const currentUsername = request.session.user["username"];
+  let currentUsername = null;
+
+  if (request.session.user) {
+    currentUsername = request.session.user['username'];
+  }
 
   const data = {
     feed,
-    currentUsername,
+    currentUsername
   };
 
   console.log(feed);
@@ -33,7 +31,6 @@ const renderHome = async (request, response) => {
   response.render('home', data);
 };
 
-
 module.exports = {
-  renderHome,
+  renderHome
 };

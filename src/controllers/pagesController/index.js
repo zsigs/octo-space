@@ -4,6 +4,8 @@ const { renderLoginForm } = require('./renderLoginForm');
 const { renderOnboarding } = require('./renderOnboarding');
 const { renderProfile } = require('./renderProfile');
 const { renderEditForm } = require('./renderEditForm')
+const { renderEditPasswordForm } = require('./renderEditPasswordForm')
+
 
 module.exports = {
   renderHome,
@@ -11,5 +13,6 @@ module.exports = {
   renderLoginForm,
   renderOnboarding,
   renderProfile,
-  renderEditForm
+  renderEditForm,
+  renderEditPasswordForm
 };

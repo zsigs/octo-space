@@ -11,7 +11,9 @@ const {
   parseOnboarding,
   renderProfile,
   renderEditForm,
-  editUser
+  editUser,
+  renderEditPasswordForm,
+  editPassword
 } = require('../controllers');
 
 const express = require('express');
@@ -27,13 +29,16 @@ router.get('/login', renderLoginForm);
 router.post('/login', loginUser);
 router.get('/signup', renderSignupForm);
 router.post('/signup', createUser);
-router.get('/logout', logoutUser);
+router.get('/logout', userLoggedIn, logoutUser);
 router.get('/confirm/:verificationId', confirmUser);
 router.get('/onboarding', renderOnboarding);
 router.post('/onboarding', parseOnboarding);
 router.get('/octo/:username', renderProfile);
-router.get('/octo/:username/edit', renderEditForm)
-router.post('/update-user', editUser)
+router.get('/octo/:username/edit', renderEditForm);
+router.post('/update-user', editUser);
+router.get('/octo/:username/edit-password', renderEditPasswordForm);
+router.post('/update-password', editPassword);
+
 
 module.exports = {
   router
