@@ -3,10 +3,10 @@ const { User } = require('../../models');
 const renderOnboarding = async (request, response, next) => {
   const currentUser = request.session.user
 
-  // if (currentUser.onboarded) {
-  //   response.redirect("/");
-  //   return ;
-  // };
+  if (currentUser.onboarded) {
+    response.redirect("/");
+    return ;
+  };
 
   const updatedUser = await User.findByIdAndUpdate(
     currentUser._id,

@@ -1,10 +1,4 @@
-const { 
-  Movie,
-  Song,
-  ResearchPaper,
-  News,
-  Book
-} = require('../../models');
+const { Movie, Song, ResearchPaper, News, Book } = require('../../models');
 
 const renderHome = async (request, response) => {
   let currentUsername = null;
@@ -45,7 +39,7 @@ const renderHome = async (request, response) => {
     songs,
     books,
     news,
-    researchPapers,
+    researchPapers
   };
 
   const topics = [
@@ -57,20 +51,22 @@ const renderHome = async (request, response) => {
     "Sports",
     "Politics",
   ];
+    
+  let currentUsername = null;
 
+  if (request.session.user) {
+    currentUsername = request.session.user['username'];
+  }
 
   const data = {
-    currentUsername,
     topics,
     feed,
+    currentUsername
   };
-
-  // console.log(feed);
 
   response.render('home', data);
 };
 
-
 module.exports = {
-  renderHome,
+  renderHome
 };
