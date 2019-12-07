@@ -5,6 +5,7 @@ const {
   renderOnboarding,
   renderProfile,
   renderEditForm,
+  renderTopicSection,
   renderEditPasswordForm
 } = require('./pagesController');
 
@@ -24,6 +25,7 @@ module.exports = {
   renderSignupForm,
   renderLoginForm,
   renderOnboarding,
+  renderTopicSection,
   createUser,
   loginUser,
   userLoggedIn,

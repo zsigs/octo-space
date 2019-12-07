@@ -12,6 +12,7 @@ const {
   renderProfile,
   renderEditForm,
   editUser,
+  renderTopicSection,
   renderEditPasswordForm,
   editPassword
 } = require('../controllers');
@@ -31,9 +32,10 @@ router.get('/signup', renderSignupForm);
 router.post('/signup', createUser);
 router.get('/logout', userLoggedIn, logoutUser);
 router.get('/confirm/:verificationId', confirmUser);
-router.get('/onboarding', renderOnboarding);
+router.get('/onboarding', userLoggedIn, renderOnboarding);
 router.post('/onboarding', parseOnboarding);
 router.get('/octo/:username', renderProfile);
+router.get('/topics/:topic', renderTopicSection);
 router.get('/octo/:username/edit', renderEditForm);
 router.post('/update-user', editUser);
 router.get('/octo/:username/edit-password', renderEditPasswordForm);

@@ -4,6 +4,7 @@ const { renderLoginForm } = require('./renderLoginForm');
 const { renderOnboarding } = require('./renderOnboarding');
 const { renderProfile } = require('./renderProfile');
 const { renderEditForm } = require('./renderEditForm')
+const { renderTopicSection } = require('./renderTopicSection');
 const { renderEditPasswordForm } = require('./renderEditPasswordForm')
 
 
@@ -14,5 +15,6 @@ module.exports = {
   renderOnboarding,
   renderProfile,
   renderEditForm,
+  renderTopicSection,
   renderEditPasswordForm
 };

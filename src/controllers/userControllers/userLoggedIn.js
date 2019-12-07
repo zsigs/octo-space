@@ -4,7 +4,7 @@ const userLoggedIn = (request, response, next) => {
   if (request.session.user) {
     next();
   } else {
-    response.render('home');
+    response.redirect('/');
   }
 };
 

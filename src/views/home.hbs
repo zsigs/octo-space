@@ -1,6 +1,17 @@
 <h1> Im home </h1>
 
 {{currentUsername}}
+
+<br>
+<br>
+
+{{#each topics}}
+  <a href="/topics/{{this}}">{{this}}</a>
+{{/each}}
+
+<br>
+<br>
+
 <br>
 <br>
 {{#if currentUsername}}
@@ -11,7 +22,7 @@
 {{/if}}
 <br>
 <br>
-{{!-- {{feed.movies}}
+{{feed.movies}}
 <br>
 <br>
 {{feed.songs}}
@@ -23,5 +34,5 @@
 {{feed.researchPapers}}
 <br>
 <br>
-{{feed.books}} --}}
+{{feed.books}}
 
