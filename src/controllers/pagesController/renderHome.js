@@ -7,11 +7,38 @@ const {
 } = require('../../models');
 
 const renderHome = async (request, response) => {
-  const movies = await Movie.find({ });
-  const songs = await Song.find({ });
-  const books = await Book.find({ });
-  const news = await News.find({ });
-  const researchPapers = await ResearchPaper.find({ });
+  let currentUsername = null;
+
+  let movies = []
+  let songs = []
+  let books = []
+  let news = []
+  let researchPapers = []
+
+  if ( request.session.user ) {
+    currentUsername = request.session.user["username"];
+    movies = await Movie.find({
+      genre : { $elemMatch : { $in : request.session.user["movieInterests"] } }
+    });
+    songs = await Song.find({
+      genre : { $elemMatch : { $in : request.session.user["songInterests"] } }
+    });
+    books = await Book.find({
+      genre : { $elemMatch : { $in : request.session.user["bookInterests"] } }
+    });
+    news = await News.find({
+      category : { $elemMatch : { $in : request.session.user["articleInterests"] } }
+    });
+    researchPapers = await ResearchPaper.find({
+      category : { $elemMatch : { $in : request.session.user["articleInterests"] } }
+    });
+  } else {
+    movies = await Movie.find({ });
+    songs = await Song.find({ });
+    books = await Book.find({ });
+    news = await News.find({ });
+    researchPapers = await ResearchPaper.find({ });
+  }
 
   const feed = {
     movies,
@@ -21,14 +48,24 @@ const renderHome = async (request, response) => {
     researchPapers,
   };
 
-  const currentUsername = request.session.user["username"];
+  const topics = [
+    "Sustainability",
+    "Technology",
+    "History",
+    "Education",
+    "Science",
+    "Sports",
+    "Politics",
+  ];
+
 
   const data = {
-    feed,
     currentUsername,
+    topics,
+    feed,
   };
 
-  console.log(feed);
+  // console.log(feed);
 
   response.render('home', data);
 };
