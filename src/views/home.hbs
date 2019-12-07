@@ -1,8 +1,17 @@
 <h1> Im home </h1>
 
 {{currentUsername}}
-
-{{feed.movies}}
+<br>
+<br>
+{{#if currentUsername}}
+<a href="/octo/{{currentUsername}}">profile</a>
+<a href="/logout">log out</a>
+{{else}}
+<a href="/login">signin</a>
+{{/if}}
+<br>
+<br>
+{{!-- {{feed.movies}}
 <br>
 <br>
 {{feed.songs}}
@@ -14,5 +23,5 @@
 {{feed.researchPapers}}
 <br>
 <br>
-{{feed.books}}
-<a href="/login">signin</a>
+{{feed.books}} --}}
+

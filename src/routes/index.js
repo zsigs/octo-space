@@ -27,7 +27,7 @@ router.get('/login', renderLoginForm);
 router.post('/login', loginUser);
 router.get('/signup', renderSignupForm);
 router.post('/signup', createUser);
-router.get('/logout', logoutUser);
+router.get('/logout', userLoggedIn, logoutUser);
 router.get('/confirm/:verificationId', confirmUser);
 router.get('/onboarding', renderOnboarding);
 router.post('/onboarding', parseOnboarding);
