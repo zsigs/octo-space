@@ -1,18 +1,16 @@
-const { EmailVerification , User } = require('../../models')
+const { EmailVerification, User } = require('../../models');
 
 const confirmUser = (request, response, next) => {
   verificationId = request.params.verificationId;
-  EmailVerification.findById(verificationId)
-  .then(verifiedDocument => {
+  EmailVerification.findById(verificationId).then(verifiedDocument => {
     console.log(verifiedDocument);
     User.findOneAndUpdate(
-      { _id : verifiedDocument.userId }, 
+      { _id: verifiedDocument.userId },
       {
-        $set: { confirmed: true },
+        $set: { confirmed: true }
       },
-      { new : true }
-    )
-    .then(updatedUser => {
+      { new: true }
+    ).then(updatedUser => {
       console.log(updatedUser);
       request.session.user = updatedUser;
       response.redirect('/onboarding');
@@ -21,5 +19,5 @@ const confirmUser = (request, response, next) => {
 };
 
 module.exports = {
-  confirmUser,
+  confirmUser
 };

@@ -2,6 +2,26 @@
 
 {{currentUsername}}
 
+<br>
+<br>
+
+{{#each topics}}
+  <a href="/topics/{{this}}">{{this}}</a>
+{{/each}}
+
+<br>
+<br>
+
+<br>
+<br>
+{{#if currentUsername}}
+<a href="/octo/{{currentUsername}}">profile</a>
+<a href="/logout">log out</a>
+{{else}}
+<a href="/login">signin</a>
+{{/if}}
+<br>
+<br>
 {{feed.movies}}
 <br>
 <br>
@@ -15,4 +35,4 @@
 <br>
 <br>
 {{feed.books}}
-<a href="/login">signin</a>
+
