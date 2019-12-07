@@ -22,7 +22,16 @@ const userSchema = new Schema({
     type : String,
     required : true,
   },
-  interests : {
+  articleInterests : {
+    type : Array,
+  },
+  songInterests : {
+    type : Array,
+  },
+  bookInterests : {
+    type : Array,
+  },
+  movieInterests : {
     type : Array,
   },
 });
