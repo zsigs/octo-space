@@ -31,11 +31,11 @@ const renderHome = async (request, response) => {
       category : { $elemMatch : { $in : request.session.user["articleInterests"] } }
     });
   } else {
-    movies = await Movie.find({ });
-    songs = await Song.find({ });
-    books = await Book.find({ });
-    news = await News.find({ });
-    researchPapers = await ResearchPaper.find({ });
+    movies = await Movie.find({ }).limit(10);
+    songs = await Song.find({ }).limit(10);
+    books = await Book.find({ }).limit(10);
+    news = await News.find({ }).limit(10);
+    researchPapers = await ResearchPaper.find({ }).limit(10);
   }
 
   const feed = {
