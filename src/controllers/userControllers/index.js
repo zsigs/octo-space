@@ -4,7 +4,8 @@ const { loginUser } = require('./loginUser');
 const { logoutUser } = require('./logoutUser');
 const { userLoggedIn } = require('./userLoggedIn');
 const { confirmUser } = require('./confirmUser');
-const { editUser } = require('./editUser')
+const { editUser } = require('./editUser');
+const { editPassword } = require('./editPassword')
 
 module.exports = {
   createUser,
@@ -14,4 +15,5 @@ module.exports = {
   confirmUser,
   editUser,
   parseOnboarding,
+  editPassword
 };
