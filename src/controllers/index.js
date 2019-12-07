@@ -3,6 +3,8 @@ const {
   renderSignupForm,
   renderLoginForm,
   renderOnboarding,
+  renderProfile,
+  renderEditForm
 } = require('./pagesController');
 
 const {
@@ -11,7 +13,8 @@ const {
   userLoggedIn,
   logoutUser,
   confirmUser,
-} = require('./authenticationControllers');
+  editUser
+} = require('./userControllers');
 
 const {
   parseOnboarding,
@@ -28,4 +31,7 @@ module.exports = {
   logoutUser,
   confirmUser,
   parseOnboarding,
+  renderProfile,
+  renderEditForm,
+  editUser
 };
