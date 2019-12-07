@@ -1,0 +1,17 @@
+<h1>Edit</h1>
+
+<form action='/update-user' method='post'>
+  <label for='email'>Email</label>
+  <input type='email' name='email' id='email-input' value="{{email}}">
+
+  <label for='username'>Username</label>
+  <input type='text' name='username' id='username-input' value="{{username}}">
+
+  <br>
+
+  <button type='submit'>Update</button>
+</form>
+
+{{#if errorMessage}}
+  <p>{{ errorMessage }}</p>
+{{/if}}

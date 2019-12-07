@@ -23,6 +23,7 @@ const createUser = (request, response, next) => {
       const newUserHashPass = bcrypt.hashSync(newUserObject.password, salt);
       User.create({
         confirmed : false,
+        onboarded : false,
         email : newUserObject.email,
         username : newUserObject.username,
         password : newUserHashPass,

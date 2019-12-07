@@ -6,13 +6,19 @@ const userSchema = new Schema({
     type : Boolean,
     required : true,
   },
+  onboarded : {
+    type : Boolean,
+    required : true,
+  },
   email : {
     type : String,
     required : true,
+    unique : true
   },
   username : {
     type : String,
     required : true,
+    unique : true
   },
   password : {
     type : String,
