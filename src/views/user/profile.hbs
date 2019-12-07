@@ -1,3 +1,11 @@
-{{username}}
-{{email}}
+{{searchedUser}}
+{{searchedEmail}}
+
+
+<div id="like">Like</div>
+
+{{#if showEdit}}
 <a href="/octo/{{username}}/edit">EDIT</a>
+{{/if}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
