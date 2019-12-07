@@ -6,6 +6,10 @@ const userSchema = new Schema({
     type : Boolean,
     required : true,
   },
+  onboarded : {
+    type : Boolean,
+    required : true,
+  },
   email : {
     type : String,
     required : true,
