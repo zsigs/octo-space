@@ -3,6 +3,10 @@ const { Movie, Song, ResearchPaper, News, Book } = require('../../models');
 const renderHome = async (request, response) => {
   let currentUsername = null;
 
+  if (request.session.user) {
+    currentUsername = request.session.user['username'];
+  }
+
   let movies = []
   let songs = []
   let books = []
@@ -51,12 +55,6 @@ const renderHome = async (request, response) => {
     "Sports",
     "Politics",
   ];
-    
-  let currentUsername = null;
-
-  if (request.session.user) {
-    currentUsername = request.session.user['username'];
-  }
 
   const data = {
     topics,
