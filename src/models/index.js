@@ -1,11 +1,5 @@
-const { Like , User , EmailVerification } = require("./userModels");
-const {
-  Movie,
-  Song,
-  ResearchPaper,
-  News,
-  Book
-} = require("./contentModels");
+const { Like, User, EmailVerification, follow } = require('./userModels');
+const { Movie, Song, ResearchPaper, News, Book } = require('./contentModels');
 
 module.exports = {
   Like,
@@ -16,4 +10,5 @@ module.exports = {
   ResearchPaper,
   News,
   Book,
+  follow,
 };
