@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-MONGOUSER = process.env.MONGOUSER
-MONGOPASS = process.env.MONGOPASS
+MONGOCONNECTSTR = process.env.MONGOCONNECTSTR;
+
 
 function mongooseConnect() {
   mongoose
-  .connect(`mongodb+srv://${MONGOUSER}:${MONGOPASS}@project2-tlhkk.gcp.mongodb.net/test?retryWrites=true&w=majority`, {
+  .connect(`${MONGOCONNECTSTR}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
