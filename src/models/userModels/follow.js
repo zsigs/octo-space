@@ -10,10 +10,12 @@ const followSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true
   }
-})
+});
 
-const follow = mongoose.model('follow', followSchema);
+followSchema.index({ followerId: 1, followingId: 1 }, { unique: true });
+
+const Follow = mongoose.model('follow', followSchema);
 
 module.exports = {
-  follow,
-}
+  Follow
+};

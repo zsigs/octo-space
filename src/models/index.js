@@ -1,4 +1,4 @@
-const { Like, User, EmailVerification, follow } = require('./userModels');
+const { Like, User, EmailVerification, Follow } = require('./userModels');
 const { Movie, Song, ResearchPaper, News, Book } = require('./contentModels');
 
 module.exports = {
@@ -10,5 +10,5 @@ module.exports = {
   ResearchPaper,
   News,
   Book,
-  follow,
+  Follow,
 };
