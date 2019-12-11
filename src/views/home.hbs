@@ -14,25 +14,24 @@
 
 <br>
 <br>
+
 {{#if currentUsername}}
 <a href="/octo/{{currentUsername}}">profile</a>
 <a href="/logout">log out</a>
 {{else}}
 <a href="/login">signin</a>
 {{/if}}
-<br>
-<br>
-{{feed.movies}}
-<br>
-<br>
-{{feed.songs}}
-<br>
-<br>
-{{feed.news}}
-<br>
-<br>
-{{feed.researchPapers}}
-<br>
-<br>
-{{feed.books}}
 
+<br>
+<br>
+
+{{#each feed.movies}}
+  <div data-id="{{this._id}}" data-type="movie" class="item">{{this}}</div>
+  <br>
+{{/each}}
+
+
+{{#if currentUsername}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="/javascript/like.js"></script>
+{{/if}}

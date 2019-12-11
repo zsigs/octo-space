@@ -8,6 +8,7 @@ const { editUser } = require('./editUser');
 const { editPassword } = require('./editPassword');
 const { handleFollow } = require('./handleFollow');
 const { handleUnfollow } = require('./handleUnfollow');
+const { handleLike } = require('./handleLike');
 
 module.exports = {
   createUser,
@@ -19,5 +20,6 @@ module.exports = {
   parseOnboarding,
   editPassword,
   handleFollow,
-  handleUnfollow
+  handleUnfollow,
+  handleLike,
 };

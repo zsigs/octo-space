@@ -17,6 +17,7 @@ const {
   editPassword,
   handleFollow,
   handleUnfollow,
+  handleLike,
 } = require('../controllers');
 
 const express = require('express');
@@ -44,6 +45,7 @@ router.get('/octo/:username/edit-password', renderEditPasswordForm);
 router.post('/update-password', editPassword);
 router.post('/follow', handleFollow);
 router.post('/unfollow', handleUnfollow);
+router.post('/like', handleLike);
 
 
 module.exports = {
