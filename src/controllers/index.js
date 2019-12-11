@@ -6,7 +6,7 @@ const {
   renderProfile,
   renderEditForm,
   renderTopicSection,
-  renderEditPasswordForm
+  renderEditPasswordForm,
 } = require('./pagesController');
 
 const {
@@ -19,6 +19,7 @@ const {
   parseOnboarding,
   editPassword,
   handleFollow,
+  handleLike,
 } = require('./userControllers');
 
 module.exports = {
@@ -39,4 +40,5 @@ module.exports = {
   renderEditPasswordForm,
   editPassword,
   handleFollow,
+  handleLike,
 };

@@ -7,6 +7,7 @@ const { confirmUser } = require('./confirmUser');
 const { editUser } = require('./editUser');
 const { editPassword } = require('./editPassword')
 const { handleFollow } = require('./handleFollow')
+const { handleLike } = require('./handleLike');
 
 module.exports = {
   createUser,
@@ -18,4 +19,5 @@ module.exports = {
   parseOnboarding,
   editPassword,
   handleFollow,
+  handleLike,
 };

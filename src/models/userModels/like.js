@@ -8,10 +8,13 @@ const likeSchema = new Schema({
   likedPost : {
     type : Schema.Types.ObjectId,
   },
+  likedType : {
+    type : String,
+  }
 });
 
 const Like = mongoose.model('Like', likeSchema);
 
 module.exports = {
   Like,
-}
+};

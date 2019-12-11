@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:zsigs/Project-2.git",
-  "author": "Gabriel Zsigmond <gaazsig@gmail.com>",
+  "author": "Gabriel Zsigmond <https://github.com/gzsig>, Joao Zsigmond <https://github.com/jzsiggy>",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon ./src/app.js -e js, css, hbs",

@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+MONGOCONNECTSTR = process.env.MONGOCONNECTSTR;
+
 
 function mongooseConnect() {
   mongoose
-  .connect('mongodb://localhost/proj2', {
+  .connect(`${MONGOCONNECTSTR}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
