@@ -18,6 +18,7 @@ hbs.registerPartials(`${root}/views/components`);
 app.set('view engine', 'hbs');
 app.set('views', `${root}/views`);
 app.use(bodyParser.urlencoded({ extended : true }));
+app.use(bodyParser.json())
 app.use(express.static(`${root}/public`));
 
 app.use(session({
