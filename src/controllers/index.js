@@ -17,7 +17,8 @@ const {
   confirmUser,
   editUser,
   parseOnboarding,
-  editPassword
+  editPassword,
+  handleFollow,
 } = require('./userControllers');
 
 module.exports = {
@@ -36,5 +37,6 @@ module.exports = {
   renderEditForm,
   editUser,
   renderEditPasswordForm,
-  editPassword
+  editPassword,
+  handleFollow,
 };
