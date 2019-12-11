@@ -18,6 +18,7 @@ const {
   editUser,
   parseOnboarding,
   editPassword,
+  handleFollow,
   handleLike,
 } = require('./userControllers');
 
@@ -38,5 +39,6 @@ module.exports = {
   editUser,
   renderEditPasswordForm,
   editPassword,
+  handleFollow,
   handleLike,
 };

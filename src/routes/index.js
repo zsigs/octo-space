@@ -15,6 +15,7 @@ const {
   renderTopicSection,
   renderEditPasswordForm,
   editPassword,
+  handleFollow,
   handleLike,
 } = require('../controllers');
 
@@ -41,6 +42,7 @@ router.get('/octo/:username/edit', renderEditForm);
 router.post('/update-user', editUser);
 router.get('/octo/:username/edit-password', renderEditPasswordForm);
 router.post('/update-password', editPassword);
+router.post('/follow', handleFollow);
 router.post('/like', handleLike);
 
 
