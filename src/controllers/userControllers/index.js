@@ -1,12 +1,13 @@
-const { parseOnboarding } = require("./parseOnboarding");
+const { parseOnboarding } = require('./parseOnboarding');
 const { createUser } = require('./createUser');
 const { loginUser } = require('./loginUser');
 const { logoutUser } = require('./logoutUser');
 const { userLoggedIn } = require('./userLoggedIn');
 const { confirmUser } = require('./confirmUser');
 const { editUser } = require('./editUser');
-const { editPassword } = require('./editPassword')
-const { handleFollow } = require('./handleFollow')
+const { editPassword } = require('./editPassword');
+const { handleFollow } = require('./handleFollow');
+const { handleUnfollow } = require('./handleUnfollow');
 
 module.exports = {
   createUser,
@@ -18,4 +19,5 @@ module.exports = {
   parseOnboarding,
   editPassword,
   handleFollow,
+  handleUnfollow
 };

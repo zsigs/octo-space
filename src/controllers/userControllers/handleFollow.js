@@ -14,6 +14,7 @@ const handleFollow = async (request, response, next) => {
     followerId: current._id,
     followingId: toFollow._id
   });
+  response.send('ok')
 };
 
 module.exports = {
