@@ -16,11 +16,12 @@ async function handleFollow() {
   window.location.pathname = `/octo/${userFollow}`;
 }
 
-function handleUnfollow() {
+async function handleUnfollow() {
   let userUnfollow = document.querySelector('#unfollow-btn');
   userUnfollow = userUnfollow.dataset.userUnfollow;
   console.log(userUnfollow);
-  axios.post('/unfollow', {
+  const unfollowPost = await axios.post('/unfollow', {
     userUnfollow
   });
+  window.location.pathname = `/octo/${userUnfollow}`;
 }
