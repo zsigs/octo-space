@@ -14,9 +14,9 @@ mongooseConnect();
 const MongoStore = connectMongo(session);
 
 const app = express();
-hbs.registerPartials(`${root}/views/components`);
 app.set('view engine', 'hbs');
 app.set('views', `${root}/views`);
+hbs.registerPartials(`${root}/views/components`);
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(bodyParser.json())
 
