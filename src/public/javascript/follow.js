@@ -1,15 +1,27 @@
 window.onload = function paageSetUp() {
   if (document.querySelector('#follow-btn')) {
-    document.querySelector('#follow-btn').onclick = handleFollowUnfollow;
+    document.querySelector('#follow-btn').onclick = handleFollow;
+  } else if (document.querySelector('#unfollow-btn')) {
+    document.querySelector('#unfollow-btn').onclick = handleUnfollow;
   }
 };
 
-function handleFollowUnfollow() {
+async function handleFollow() {
   let userFollow = document.querySelector('#follow-btn');
   userFollow = userFollow.dataset.userFollow;
-  console.log('hellow orld');
   console.log(userFollow);
-  axios.post('/follow', {
+  const followPost = await axios.post('/follow', {
     userFollow
+  })
+  window.location.pathname = `/octo/${userFollow}`;
+}
+
+async function handleUnfollow() {
+  let userUnfollow = document.querySelector('#unfollow-btn');
+  userUnfollow = userUnfollow.dataset.userUnfollow;
+  console.log(userUnfollow);
+  const unfollowPost = await axios.post('/unfollow', {
+    userUnfollow
   });
+  window.location.pathname = `/octo/${userUnfollow}`;
 }

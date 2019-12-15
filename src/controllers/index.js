@@ -19,6 +19,7 @@ const {
   parseOnboarding,
   editPassword,
   handleFollow,
+  handleUnfollow,
   handleLike,
 } = require('./userControllers');
 
@@ -40,5 +41,6 @@ module.exports = {
   renderEditPasswordForm,
   editPassword,
   handleFollow,
+  handleUnfollow,
   handleLike,
 };
