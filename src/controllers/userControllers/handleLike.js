@@ -23,6 +23,9 @@ const handleLike = async (request, response, next) => {
       likedType: dataType,
     });
   };
+
+  console.log("like");
+
 };
 
 module.exports = {
