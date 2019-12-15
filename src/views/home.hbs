@@ -1,35 +1,30 @@
-<h1> Im home </h1>
+<link rel="stylesheet" href="/css/home.css">
 
-{{currentUsername}}
+<div class="container">
+  <h1> Im home </h1>
 
-<br>
-<br>
-
-{{#each topics}}
-  <a href="/topics/{{this}}">{{this}}</a>
-{{/each}}
-
-<br>
-<br>
-
-<br>
-<br>
-
-{{#if currentUsername}}
-<a href="/octo/{{currentUsername}}">profile</a>
-<a href="/logout">log out</a>
-{{else}}
-<a href="/login">signin</a>
-{{/if}}
-
-<br>
-<br>
-
-{{#each feed.movies}}
-  <div data-id="{{this._id}}" data-type="movie" class="item">{{this}}</div>
   <br>
-{{/each}}
+  <br>
 
+  <div>
+  {{#each topics}}
+    <a href="/topics/{{this}}">{{this}}</a>
+  {{/each}}
+  </div>
+
+  <br>
+  <br>
+
+  <br>
+  <br>
+
+  <div class="feed">
+    {{#each feed.movies}}
+      <div data-id="{{this._id}}" data-type="movie" class="feed-item">{{this}}</div>
+      <br>
+    {{/each}}
+  </div>
+</div>
 
 {{#if currentUsername}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>

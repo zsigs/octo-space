@@ -3,9 +3,11 @@
     
   <div id="nav-items">
   <a href="/" class="nav-item">Home</a>
-  {{#if currentUsername}}
-  <a href="/octo/{{currentUsername}}" class="nav-item">{{currentUsername}}</a>
+  {{#if @currentUser}}
+  <a href="/octo/{{@currentUser.username}}" class="nav-item">{{@currentUser.username}}</a>
+  <a href="/logout" class="nav-item">log out</a>
+  {{else}}
+  <a href="/login" class="nav-item">signin</a>
   {{/if}}
-  <a href="" class="nav-item"></a>
   </div>
 </nav>
