@@ -17,6 +17,9 @@ const app = express();
 app.set('view engine', 'hbs');
 app.set('views', `${root}/views`);
 hbs.registerPartials(`${root}/views/components`);
+
+hbs.localsAsTemplateData(app);
+
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(bodyParser.json())
 
@@ -30,6 +33,11 @@ app.use(session({
     ttl : 24 * 60 * 60,
   }),
 }));
+
+app.use((request, response, next) => {
+  app.locals.currentUser = request.session.user;
+  next();
+});
 
 app.use('/', router);
 
