@@ -18,6 +18,7 @@ const {
   handleFollow,
   handleUnfollow,
   handleLike,
+  editInterests
 } = require('../controllers');
 
 const express = require('express');
@@ -42,6 +43,7 @@ router.get('/topics/:topic', renderTopicSection);
 router.get('/octo/:username/edit', userLoggedIn, renderEditForm);
 router.post('/update-user', editUser);
 router.get('/octo/:username/edit-password', userLoggedIn, renderEditPasswordForm);
+router.get('/octo/:username/edit-interests', editInterests);
 router.post('/update-password', editPassword);
 router.post('/follow', handleFollow);
 router.post('/unfollow', handleUnfollow);

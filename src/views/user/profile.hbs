@@ -15,17 +15,28 @@
   <div id="unfollow-btn" data-user-unfollow="{{searchedUser}}">Unfollow</div>
   {{/if}}
   {{/unless}}
-
+<div class="user-hero">
   <div id="interests">
     <br>
     <b>Interests:</b>
-    <p> Articles: {{articleInterests}} </p>
+    <p>Articles: {{articleInterests}} </p>
     <p> Sangs: {{songInterests}} </p>
     <p>Books: {{bookInterests}} </p>
     <p>Movies: {{movieInterests}} </p>
+      {{#if showEdit}}
+    <a href="/octo/{{searchedUser}}/edit-interests">edit-interests</a>
+      {{/if}}
   </div>
-
-
+  {{#if showEdit}}
+  <div id="following">
+        <br>
+    <b>Following:</b>
+    {{#each FOLLOWING}}
+    <p><a href="/octo/{{this}}" style="text-decoration: none;">{{this}}</a></p>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
   <div class="liked-content">
     {{#if MOVIES.0.title}}
     <div class="liked-content-title"> MOVIES:</div>

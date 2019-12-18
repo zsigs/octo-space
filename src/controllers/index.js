@@ -21,6 +21,7 @@ const {
   handleFollow,
   handleUnfollow,
   handleLike,
+  editInterests,
 } = require('./userControllers');
 
 module.exports = {
@@ -43,4 +44,5 @@ module.exports = {
   handleFollow,
   handleUnfollow,
   handleLike,
+  editInterests,
 };

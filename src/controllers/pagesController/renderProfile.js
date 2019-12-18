@@ -17,7 +17,8 @@ const renderProfile = (request, response, next) => {
     SONGS = [],
     PAPERS = [],
     NEWS = [],
-    BOOKS = [];
+    BOOKS = [],
+    FOLLOWING = [];
   console.log('username: ', username);
   User.findOne({ username })
     .then(res => {
@@ -25,10 +26,10 @@ const renderProfile = (request, response, next) => {
       searchedEmail = res.email;
       id = res._id;
 
-      articleInterests = res.articleInterests
-      songInterests = res.songInterests
-      bookInterests = res.bookInterests
-      movieInterests = res.movieInterests
+      articleInterests = res.articleInterests;
+      songInterests = res.songInterests;
+      bookInterests = res.bookInterests;
+      movieInterests = res.movieInterests;
 
       console.log('id: ', id);
       showEdit = searchedUser == request.session.user.username ? true : false;
@@ -52,29 +53,42 @@ const renderProfile = (request, response, next) => {
           });
         }
 
-        Follow.findOne({
-          followerId: request.session.user._id,
-          followingId: id
-        }).then(following => {
-          console.log(following);
-          if (following) {
-            canFollow = false;
-          }
-          response.render('user/profile', {
-            searchedUser,
-            searchedEmail,
-            showEdit,
-            canFollow,
-            // myLikes,
-            MOVIES,
-            SONGS,
-            PAPERS,
-            NEWS,
-            BOOKS,
-            articleInterests,
-songInterests,
-bookInterests,
-movieInterests,
+        Follow.find({
+          followerId: request.session.user._id
+        }).then(res => {
+          console.log('follow: ', res);
+          res.forEach(user => {
+            User.findOne({ _id: user.followingId }).then(follower => {
+              FOLLOWING.push(follower.username);
+            });
+          });
+
+          Follow.findOne({
+            followerId: request.session.user._id,
+            followingId: id
+          }).then(following => {
+            console.log(following);
+            if (following) {
+              canFollow = false;
+            }
+
+            response.render('user/profile', {
+              searchedUser,
+              searchedEmail,
+              showEdit,
+              canFollow,
+              // myLikes,
+              MOVIES,
+              SONGS,
+              PAPERS,
+              NEWS,
+              BOOKS,
+              FOLLOWING,
+              articleInterests,
+              songInterests,
+              bookInterests,
+              movieInterests
+            });
           });
         });
       });
