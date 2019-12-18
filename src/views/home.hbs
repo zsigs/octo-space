@@ -20,7 +20,7 @@
 
     <div class="feed">
       {{#each feed.movies}}
-      <div data-id="{{this._id}}" data-type="movie" class="card">
+      <div class="card">
         <div class="type-tag">{{this.type}}</div>
         <div class="card-title">{{this.title}}</div>
         <p class="card-info">{{this.plot}}</p>
@@ -45,8 +45,8 @@
           </table>
 
 
-
         </div>
+        <a href="" class="like-btn" data-id="{{this._id}}" data-type="movie">Like</a>
       </div>
       <br>
       {{/each}}
