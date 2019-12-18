@@ -1,33 +1,52 @@
-Interests
+<link rel="stylesheet" href="/css/form.css">
 
-<form action="/onboarding" method="post">
-  <input type="checkbox" name="article" value="Technology">Technology<br>
-  <input type="checkbox" name="article" value="Sustainability">Sustainability<br>
-  <input type="checkbox" name="article" value="Spirituality">Spirituality<br>
-  <input type="checkbox" name="article" value="Education">Education<br>
 
-  <br>
-  <br>
+<div class="wrapper">
+  <div class="form-container">
+    <h1 class="form-title">Interests</h1>
 
-  <input type="checkbox" name="book" value="Action">Action<br>
-  <input type="checkbox" name="book" value="Adventure">Adventure<br>
-  <input type="checkbox" name="book" value="Comedy">Comedy<br>
-  <input type="checkbox" name="book" value="Philosophy">Philosophy<br>
+    <form action="/onboarding" method="post">
 
-  <br>
-  <br>
+<h4>Short Reads</h4>
+      <input type="checkbox" name="article" value="Technology">Technology<br>
+      <input type="checkbox" name="article" value="Sustainability">Sustainability<br>
+      <input type="checkbox" name="article" value="Spirituality">Spirituality<br>
+      <input type="checkbox" name="article" value="Education">Education<br>
 
-  <input type="checkbox" name="movie" value="Action">Action<br>
-  <input type="checkbox" name="movie" value="Adventure">Adventure<br>
-  <input type="checkbox" name="movie" value="Comedy">Comedy<br>
-  <input type="checkbox" name="movie" value="Philosophy">Philosophy<br>
+      <br>
+      <br>
 
-  <br>
-  <br>
+<h4>Long Reads</h4>
+      <input type="checkbox" name="book" value="Action">Action<br>
+      <input type="checkbox" name="book" value="Adventure">Adventure<br>
+      <input type="checkbox" name="book" value="Comedy">Comedy<br>
+      <input type="checkbox" name="book" value="Philosophy">Philosophy<br>
 
-  <input type="checkbox" name="song" value="Rock">Rock<br>
-  <input type="checkbox" name="song" value="Pop">Pop<br>
-  <input type="checkbox" name="song" value="Funk">Funk<br>
-  <input type="checkbox" name="song" value="Blues">Blues<br>
-  <button type="submit">Submit</button>
-</form>
+      <br>
+      <br>
+<h4>Movies</h4>
+      <input type="checkbox" name="movie" value="Action">Action<br>
+      <input type="checkbox" name="movie" value="Adventure">Adventure<br>
+      <input type="checkbox" name="movie" value="Comedy">Comedy<br>
+      <input type="checkbox" name="movie" value="Philosophy">Philosophy<br>
+
+      <br>
+      <br>
+
+<h4>Music</h4>
+
+      <input type="checkbox" name="song" value="Rock">Rock<br>
+      <input type="checkbox" name="song" value="Pop">Pop<br>
+      <input type="checkbox" name="song" value="Funk">Funk<br>
+      <input type="checkbox" name="song" value="Blues">Blues<br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="form-footer">
+      <div class="link">
+        <a href="/octo/{{@currentUser.username}}" class="underline-hover">Cancel</a>
+      </div>
+    </div>
+
+  </div>
+</div>

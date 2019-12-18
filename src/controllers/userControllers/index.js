@@ -9,6 +9,7 @@ const { editPassword } = require('./editPassword');
 const { handleFollow } = require('./handleFollow');
 const { handleUnfollow } = require('./handleUnfollow');
 const { handleLike } = require('./handleLike');
+const { editInterests } = require('./editInterests');
 
 module.exports = {
   createUser,
@@ -22,4 +23,5 @@ module.exports = {
   handleFollow,
   handleUnfollow,
   handleLike,
+  editInterests
 };
