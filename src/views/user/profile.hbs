@@ -1,7 +1,7 @@
 <div class="wrapper">
   {{searchedUser}}
   {{searchedEmail}}
-
+  {{myLikes}}
   {{#unless showEdit}}
   {{#if canFollow}}
   <div id="follow-btn" data-user-follow="{{searchedUser}}">Follow</div>
@@ -9,7 +9,37 @@
   <div id="unfollow-btn" data-user-unfollow="{{searchedUser}}">Unfollow</div>
   {{/if}}
   {{/unless}}
-
+  {{#if MOVIES}}
+  MOVIES:
+  {{#each MOVIES}}
+  {{this}}
+  {{/each}}
+  {{/if}}
+  {{#if SONGS}}
+  SONGS:
+  {{#each SONGS}}
+  {{this}}
+  {{/each}}
+  {{/if}}
+  {{#if PAPERS}}
+  PAPERS:
+  {{#each PAPERS}}
+  {{this}}
+  {{/each}}
+  {{/if}}
+  {{#if NEWS}}
+  NEWS:
+  {{#each NEWS}}
+  {{this}}
+  {{/each}}
+  {{/if}}
+  {{#if BOOKS}}
+  BOOKS:
+  {{#each BOOKS}}
+  {{this}}
+  {{/each}}
+  {{/if}}
+  <br>
   {{#if showEdit}}
   <a href="/octo/{{searchedUser}}/edit">EDIT</a>
   {{/if}}

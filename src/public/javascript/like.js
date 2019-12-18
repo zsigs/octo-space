@@ -1,4 +1,4 @@
-const items = document.querySelectorAll('.feed-item');
+const items = document.querySelectorAll('.card');
 
 console.log(items);
 
