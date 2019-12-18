@@ -44,7 +44,7 @@ const createUser = (request, response, next) => {
       })
       .catch(err => {
         console.log('Error registering user to DB: ', err);
-        response.render('signup', {
+        response.render('authentication/signup', {
           errorMessage : 'Error registering user to database',
         });
       });

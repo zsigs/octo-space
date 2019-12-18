@@ -34,8 +34,23 @@ const renderTopicSection = async (request, response, next) => {
     researchPapers,
   };
 
+  const topics = [
+    "Sustainability",
+    "Technology",
+    "History",
+    "Education",
+    "Science",
+    "Sports",
+    "Politics",
+  ];
+
+  const data = {
+    feed,
+    topics
+  };
+
   console.log(news);
-  response.render("section", feed);
+  response.render("section", data);
 };
 
 module.exports = {
