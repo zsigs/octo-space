@@ -1,6 +1,12 @@
+<link rel="stylesheet" href="/css/home.css">
 <div class="wrapper">
-  {{searchedUser}}
-  {{searchedEmail}}
+  <div class="user-info">
+    <div class="user-info-line"> Usernaem: {{searchedUser}}</div>
+    <div class="user-info-line">Contact information: {{searchedEmail}}</div>
+  </div>
+  {{#if showEdit}}
+  <a href="/octo/{{searchedUser}}/edit">EDIT</a>
+  {{/if}}
   {{myLikes}}
   {{#unless showEdit}}
   {{#if canFollow}}
@@ -9,40 +15,155 @@
   <div id="unfollow-btn" data-user-unfollow="{{searchedUser}}">Unfollow</div>
   {{/if}}
   {{/unless}}
-  {{#if MOVIES}}
-  MOVIES:
-  {{#each MOVIES}}
-  {{this}}
-  {{/each}}
-  {{/if}}
-  {{#if SONGS}}
+
+  <div id="interests">
+    <br>
+    <b>Interests:</b>
+    <p> Articles: {{articleInterests}} </p>
+    <p> Sangs: {{songInterests}} </p>
+    <p>Books: {{bookInterests}} </p>
+    <p>Movies: {{movieInterests}} </p>
+  </div>
+
+
+  <div class="liked-content">
+    {{#if MOVIES.0.title}}
+    <div class="liked-content-title"> MOVIES:</div>
+    <div class="feed">
+      {{#each MOVIES}}
+      <div class="card">
+        <div class="type-tag">{{this.type}}</div>
+        <div class="card-title">{{this.title}}</div>
+        <p class="card-info">{{this.plot}}</p>
+        <div class="director">Director: {{this.director}}</div>
+        <div class="actor">Actors: {{this.actors}}</div>
+        {{!-- <p class="">{{this.poster}}</p> --}}
+        <div class="card-footer">
+          <table id="footer-info">
+            <tr>
+              <th>release date</th>
+              <th>runtime</th>
+              <th>lang</th>
+              <th>genre</th>
+            </tr>
+            <tr>
+              <td>{{this.releaseDate}}</td>
+              <td>{{this.runtime}}</td>
+              <td>{{this.lang}}</td>
+              <td>{{this.genre}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div>
+  {{#if SONGS.0.title}}
   SONGS:
-  {{#each SONGS}}
-  {{this}}
-  {{/each}}
+  <div class="feed">
+    {{#each SONGS}}
+    {{this}}
+    <div class="card">
+      <div class="type-tag">{{this.genre}}</div>
+      <div class="card-title">{{this.title}}</div>
+      <p class="card-info">{{this.plot}}</p>
+      <div class="director">Artist: {{this.artist}}</div>
+      <div class="card-footer">
+        <a href="{{this.spotifyUrl}}">Open in Spotify</a>
+        <table id="footer-info">
+          <tr>
+            <th>duration</th>
+          </tr>
+          <tr>
+            <td>{{this.duration}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    {{/each}}
+  </div>
   {{/if}}
-  {{#if PAPERS}}
+  {{#if PAPERS.0.title}}
   PAPERS:
-  {{#each PAPERS}}
-  {{this}}
-  {{/each}}
+  <div class="feed">
+    {{#each PAPERS}}
+    <div class="card">
+      <div class="type-tag">{{this.category}}</div>
+      <div class="card-title">{{this.title}}</div>
+      <div class="director">Author: {{this.author}}</div>
+      <div class="card-footer">
+        <a href="{{this.url}}">Open</a>
+        <table id="footer-info">
+          <tr>
+            <th>number of pages</th>
+          </tr>
+          <tr>
+            <td>{{this.numPages}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    {{/each}}
+  </div>
   {{/if}}
-  {{#if NEWS}}
+  {{#if NEWS.0.title}}
   NEWS:
-  {{#each NEWS}}
-  {{this}}
-  {{/each}}
+  <div class="feed">
+    {{#each NEWS}}
+    <div class="card">
+      <div class="type-tag">{{this.category}}</div>
+      <div class="card-title">{{this.title}}</div>
+      <p class="card-info">{{this.firstParagraph}}</p>
+      <div class="card-footer">
+        <a href="{{this.url}}">Open</a>
+        <table id="footer-info">
+          <tr>
+            <th>source</th>
+            <th>publicationDate</th>
+            <th>mediaType</th>
+          </tr>
+          <tr>
+            <td>{{this.source}}</td>
+            <td>{{this.publicationDate}}</td>
+            <td>{{this.mediaType}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    {{/each}}
+  </div>
   {{/if}}
-  {{#if BOOKS}}
+  {{#if BOOKS.0.title}}
   BOOKS:
-  {{#each BOOKS}}
-  {{this}}
-  {{/each}}
+  <div class="feed">
+    {{#each BOOKS}}
+    <div class="card">
+      <div class="type-tag">Book</div>
+      <div class="card-title">{{this.title}}</div>
+      <p class="card-info">{{this.plot}}</p>
+      <div class="director">Author: {{this.author}}</div>
+      <div class="card-footer">
+        <table id="footer-info">
+          <tr>
+            <th>datePublished</th>
+            <th>numPages</th>
+            <th>ISBN</th>
+            <th>genre</th>
+          </tr>
+          <tr>
+            <td>{{this.datePublished}}</td>
+            <td>{{this.numPages}}</td>
+            <td>{{this.ISBN}}</td>
+            <td>{{this.genre}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    {{/each}}
+  </div>
   {{/if}}
   <br>
-  {{#if showEdit}}
-  <a href="/octo/{{searchedUser}}/edit">EDIT</a>
-  {{/if}}
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script src="/javascript/follow.js"></script>

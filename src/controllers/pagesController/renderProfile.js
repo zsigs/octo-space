@@ -24,9 +24,15 @@ const renderProfile = (request, response, next) => {
       searchedUser = res.username;
       searchedEmail = res.email;
       id = res._id;
+
+      articleInterests = res.articleInterests
+      songInterests = res.songInterests
+      bookInterests = res.bookInterests
+      movieInterests = res.movieInterests
+
       console.log('id: ', id);
       showEdit = searchedUser == request.session.user.username ? true : false;
-      Like.find({ userWhoLiked: request.session.user._id }).then(myLikes => {
+      Like.find({ userWhoLiked: id }).then(myLikes => {
         for (like of myLikes) {
           console.log('post: ', like.likedPost);
           Movie.findOne({ _id: like.likedPost }).then(movie => {
@@ -42,7 +48,7 @@ const renderProfile = (request, response, next) => {
             NEWS.push(news);
           });
           Book.findOne({ _id: like.likedPost }).then(book => {
-            BOOKS.push(books);
+            BOOKS.push(book);
           });
         }
 
@@ -64,7 +70,11 @@ const renderProfile = (request, response, next) => {
             SONGS,
             PAPERS,
             NEWS,
-            BOOKS
+            BOOKS,
+            articleInterests,
+songInterests,
+bookInterests,
+movieInterests,
           });
         });
       });
