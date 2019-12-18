@@ -1,15 +1,24 @@
-<h1>Edit</h1>
+<link rel="stylesheet" href="/css/form.css">
+<div class="wrapper">
+  <div class="form-container">
+    <h1 class="form-title">Edit</h1>
+    <form action='/update-user' method='post'>
+      <label for='email'>Email</label>
+      <input type='email' name='email' id='email-input' value="{{email}}">
+      <label for='username'>Username</label>
+      <input type='text' name='username' id='username-input' value="{{username}}">
+      <br>
+      <button type='submit'>Update</button>
+    </form>
 
-<form action='/update-user' method='post'>
-  <label for='email'>Email</label>
-  <input type='email' name='email' id='email-input' value="{{email}}">
-  <label for='username'>Username</label>
-  <input type='text' name='username' id='username-input' value="{{username}}">
-  <br>
-  <button type='submit'>Update</button>
-</form>
-<a href="/octo/{{username}}">CANCEL</a>
-<a href="/octo/{{username}}/edit-password">EDIT PASSWORD</a>
-{{#if errorMessage}}
-<p>{{ errorMessage }}</p>
-{{/if}}
+    <div class="form-footer">
+      <div class="link">
+      <a href="/octo/{{username}}" class="underline-hover" >cancel</a>
+      <a href="/octo/{{username}}/edit-password" class="underline-hover" >edit&nbsppassword</a>
+      </div>
+      {{#if errorMessage}}
+      <p>{{ errorMessage }}</p>
+      {{/if}}
+    </div>
+  </div>
+</div>

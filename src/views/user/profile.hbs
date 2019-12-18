@@ -1,17 +1,18 @@
-{{searchedUser}}
-{{searchedEmail}}
+<div class="wrapper">
+  {{searchedUser}}
+  {{searchedEmail}}
 
-{{#unless showEdit}}
+  {{#unless showEdit}}
   {{#if canFollow}}
-    <div id="follow-btn" data-user-follow="{{searchedUser}}">Follow</div>
-    {{else}}
-    <div id="unfollow-btn" data-user-unfollow="{{searchedUser}}">Unfollow</div>
+  <div id="follow-btn" data-user-follow="{{searchedUser}}">Follow</div>
+  {{else}}
+  <div id="unfollow-btn" data-user-unfollow="{{searchedUser}}">Unfollow</div>
   {{/if}}
-{{/unless}}
+  {{/unless}}
 
-{{#if showEdit}}
-<a href="/octo/{{searchedUser}}/edit">EDIT</a>
-{{/if}}
-
+  {{#if showEdit}}
+  <a href="/octo/{{searchedUser}}/edit">EDIT</a>
+  {{/if}}
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script src="/javascript/follow.js"></script>

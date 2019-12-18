@@ -69,11 +69,15 @@ label {
 .link {
   width: min-content;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .underline-hover {
   text-decoration: none;
   color: #5fbae9;
+  margin: 0 4px;
 }
 
 .underline-hover:after {
