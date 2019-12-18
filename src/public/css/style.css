@@ -13,6 +13,11 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+td, th {
+  max-width: 30px;
+  overflow: scroll;
+}
+
 .wrapper {
   width: 94vw;
   margin: 0 auto;
